@@ -1,5 +1,10 @@
 resource "aws_autoscaling_group" "dashboard-asg" {
-  name = var.asg_name
+  name = lookup(
+    var.asg_name,
+    terraform.workspace,
+    lookup(var.asg_name, "default", ""),
+  )
+
   launch_template {
     id      = aws_launch_template.dashboard_asg_template.id
     version = "$Latest"

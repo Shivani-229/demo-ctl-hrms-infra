@@ -1,5 +1,9 @@
 resource "aws_alb" "dashboard_alb" {
-  name               = var.lb_name
+  name = lookup(
+    var.lb_name,
+    terraform.workspace,
+    lookup(var.lb_name, "default", ""),
+  )
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.allow_http.id]
@@ -11,7 +15,11 @@ resource "aws_alb" "dashboard_alb" {
 }
 
 resource "aws_alb_target_group" "dashboard_target_group" {
-  name     = "dashboard-tg"
+  name = lookup(
+    var.tg_name,
+    terraform.workspace,
+    lookup(var.tg_name, "default", ""),
+  )
   port     = 80
   protocol = "HTTP"
   vpc_id   = data.aws_vpc.selected.id

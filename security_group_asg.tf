@@ -1,5 +1,10 @@
 resource "aws_security_group" "allow_http_asg" {
-  name        = var.asg_security_group_name
+  name = lookup(
+    var.asg_security_group_name,
+    terraform.workspace,
+    lookup(var.asg_security_group_name, "default", ""),
+  )
+
   description = "Allow HTTP inbound traffic from LB"
 
   ingress {
