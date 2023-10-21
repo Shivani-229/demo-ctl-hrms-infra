@@ -15,8 +15,10 @@ resource "aws_autoscaling_group" "dashboard-asg" {
   vpc_zone_identifier = data.aws_subnets.selected.ids
 
   target_group_arns = [aws_alb_target_group.dashboard_target_group.arn]
+  min_instance_refresh_percentage = 50
 
   lifecycle {
     create_before_destroy = true
   }
+
 }
