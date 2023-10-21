@@ -20,15 +20,15 @@ jobs:
 
       - name: Initialize Terraform
         run: terraform init
-        working-directory: ./path-to-your-terraform-config
+        #working-directory: ./path-to-your-terraform-config
 
       - name: Plan Terraform Changes
         run: terraform plan
-        working-directory: ./path-to-your-terraform-config
+        #working-directory: ./path-to-your-terraform-config
 
       - name: Apply Terraform Changes
         run: terraform apply -auto-approve
-        working-directory: ./path-to-your-terraform-config
+        #working-directory: ./path-to-your-terraform-config
         env:
           TF_CLI_ARGS: "-input=false"  # Automatically approve changes without asking for confirmation
 
