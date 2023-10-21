@@ -27,7 +27,7 @@ jobs:
         run: |
           ls
           terraform init
-          terraform apply -auto-approve
+          terraform destroy -auto-approve
         env:
           TF_CLI_ARGS: "-input=false"  # Automatically approve changes without asking for confirmation
 
