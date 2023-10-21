@@ -29,6 +29,7 @@ jobs:
           terraform workspace select dev
           terraform apply -auto-approve
           terraform output
+          aws autoscaling start-instance-refresh --auto-scaling-group-name dev-asg-dashboard --preferences '{"InstanceWarmup": 60, "MinHealthyPercentage": 50}'
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -57,6 +58,7 @@ jobs:
           terraform workspace select staging
           terraform apply -auto-approve
           terraform output
+          aws autoscaling start-instance-refresh --auto-scaling-group-name staging-asg-dashboard --preferences '{"InstanceWarmup": 60, "MinHealthyPercentage": 50}'
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -85,6 +87,7 @@ jobs:
           terraform workspace select prod
           terraform apply -auto-approve
           terraform output
+          aws autoscaling start-instance-refresh --auto-scaling-group-name prod-asg-dashboard --preferences '{"InstanceWarmup": 60, "MinHealthyPercentage": 50}'
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
