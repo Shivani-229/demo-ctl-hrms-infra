@@ -43,7 +43,7 @@ jobs:
       - name: Run AWS CLI Command
         run: |
           # Your AWS CLI command here
-          aws autoscaling start-instance-refresh --auto-scaling-group-name dev-asg-dashboard --preferences '{"InstanceWarmup": 60, "MinHealthyPercentage": 50}'
+          #aws autoscaling start-instance-refresh --auto-scaling-group-name dev-asg-dashboard --preferences '{"InstanceWarmup": 60, "MinHealthyPercentage": 50}'
 
   staging:
     needs: dev
@@ -83,7 +83,7 @@ jobs:
       - name: Run AWS CLI Command
         run: |
           # Your AWS CLI command here
-          aws autoscaling start-instance-refresh --auto-scaling-group-name staging-asg-dashboard --preferences '{"InstanceWarmup": 60, "MinHealthyPercentage": 50}'
+          #aws autoscaling start-instance-refresh --auto-scaling-group-name staging-asg-dashboard --preferences '{"InstanceWarmup": 60, "MinHealthyPercentage": 50}'
 
 
   prod:
@@ -124,5 +124,5 @@ jobs:
       - name: Run AWS CLI Command
         run: |
           # Your AWS CLI command here
-          aws autoscaling start-instance-refresh --auto-scaling-group-name prod-asg-dashboard --preferences '{"InstanceWarmup": 60, "MinHealthyPercentage": 50}'
+          #aws autoscaling start-instance-refresh --auto-scaling-group-name prod-asg-dashboard --preferences '{"InstanceWarmup": 60, "MinHealthyPercentage": 50}'
 
