@@ -1,4 +1,4 @@
-# Deploy ASG Stack GitHub Action
+# Create infrastructure pipeline for ASG Stack
 
 This GitHub Action automates the process of deploying an AWS Auto Scaling Group (ASG) stack using Terraform and AWS CLI. The action consists of multiple stages (Dev, Staging, and Prod), each deploying a different environment. 
 
