@@ -71,7 +71,7 @@ jobs:
       - name: Apply Terraform (Dev)
         run: |
           terraform workspace select dev
-          terraform destroy -auto-approve
+          terraform apply -auto-approve
           terraform output
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
