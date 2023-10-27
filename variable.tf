@@ -26,10 +26,10 @@ variable "asg_security_group_name" {
 variable "instance_type" {
   type = map(any)
   default = {
-    "default" = "t2.nano"
-    "dev"     = "t2.small"
-    "staging" = "t2.medium"
-    "prod"    = "t2.medium"
+    "default" = "t3.nano"
+    "dev"     = "t3.small"
+    "staging" = "t3.medium"
+    "prod"    = "t3.medium"
   }
 }
 
