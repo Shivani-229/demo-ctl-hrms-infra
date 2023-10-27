@@ -35,7 +35,7 @@ variable "instance_type" {
 
 variable "key_name" {
   type    = string
-  default = "devops-gl"
+  default = "devops-demo18"
 }
 
 variable "lt_name" {
